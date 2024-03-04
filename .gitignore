@@ -1,2 +1,4 @@
 # List of untracked files to ignore
-build/
+build
+*.autosave
+codegen
