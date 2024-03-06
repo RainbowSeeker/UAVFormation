@@ -4,8 +4,9 @@
 %% Constant Variable (for internal use)
 PLANT_CONST.dt = 0.002;
 
-
-
+% aero_data.con_v = 4;
+% aero_data.con_h = 0.05;
+% aero_data.con_vh = 1.184;
 aero_data.con_v = 1;
 aero_data.con_h = 1;
 aero_data.con_vh = 1;

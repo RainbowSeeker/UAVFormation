@@ -24,3 +24,5 @@ load_bus(rootpath);
 %% init models
 run('plant_init.m');
 run('control_init.m');
+
+sl_refresh_customizations;

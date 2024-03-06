@@ -17,4 +17,4 @@ CTRL_PARAM.AIRSPD_TRIM  = single(15.0); % Trim (Cruise) Airspeed
 %% control param
 CTRL_PARAM.FORM_X_KP = single(1);
 CTRL_PARAM.FORM_Y_KP = single(1);
-CTRL_PARAM.FORM_VH_KP = single(1);
+CTRL_PARAM.FORM_Z_KP = single(1);
