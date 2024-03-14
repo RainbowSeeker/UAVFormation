@@ -1,5 +1,5 @@
 %% Model Constant
-CONTROL_CONST.dt = 0.002;   % model execution period
+CONTROL_CONST.dt = 0.005;   % model execution period
 CONTROL_CONST.g  = single(9.80665);
 
 %% Fromation Paramaters
@@ -36,8 +36,6 @@ CONTROL_PARAM_VALUE.FW_AIRSPD_TRIM  = single(25.0); % Trim (Cruise) Airspeed
 CONTROL_PARAM_VALUE.FW_AIRSPD_STALL = single(7.0);  % Stall Airspeed (CAS)
 CONTROL_PARAM_VALUE.FW_ARSP_MODE    = int32(0);     % Airspeed mode: 0 Use airspeed in controller
 CONTROL_PARAM_VALUE.FW_ARSP_SCALE_EN= int32(1);     % Enable airspeed scaling
-CONTROL_PARAM_VALUE.FW_T_SPD_STD    = single(0.2);  % Airspeed measurement standard deviation for airspeed filter
-CONTROL_PARAM_VALUE.FW_T_SPD_PRC_STD= single(0.2);  % Process noise standard deviation for the airspeed rate in the airspeed filter
 CONTROL_PARAM_VALUE.FW_T_TAS_TC     = single(5.0);  % True airspeed error time constant
 CONTROL_PARAM_VALUE.FW_T_I_GAIN_PIT = single(0.1);  % Integrator gain pitch
 CONTROL_PARAM_VALUE.FW_T_I_GAIN_THR = single(0.05); % Integrator gain throttle
@@ -54,7 +52,6 @@ CONTROL_PARAM_VALUE.FW_R_LIM        = single(deg2rad(50.0)); % Maximum roll angl
 CONTROL_PARAM_VALUE.FW_T_VERT_ACC   = single(7.0);  % Maximum vertical acceleration
 CONTROL_PARAM_VALUE.FW_T_ALT_TC     = single(5.0);  % Altitude error time constant
 CONTROL_PARAM_VALUE.FW_T_HRATE_FF   = single(0.3);  % Height rate feed forward
-CONTROL_PARAM_VALUE.FW_T_STE_R_TC   = single(0.4);  % Specific total energy rate first order filter time constant
 CONTROL_PARAM_VALUE.FW_T_RLL2THR    = single(15.0); % Roll -> Throttle feedforward 
 
 %% Rate Control

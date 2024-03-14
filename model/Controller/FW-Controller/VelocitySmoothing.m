@@ -274,7 +274,7 @@ classdef (StrictDefaults) VelocitySmoothing < matlab.System
 
         function sts = getSampleTimeImpl(obj)
             if obj.SampleTime < 0
-                error("SampleTime Must be > 0");
+                sts = createSampleTime(obj,'Type','Inherited');
             else
                 sts = createSampleTime(obj,'Type','Discrete',...
                     'SampleTime',obj.SampleTime);
