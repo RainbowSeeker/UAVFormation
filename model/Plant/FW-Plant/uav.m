@@ -81,7 +81,7 @@ if (psi_hmr<-180)   psi_hmr = psi_hmr+360.0; end
 
 Vt =25; alpha=(2.7480)/rad2deg; beta =0.0/rad2deg;theta0=(2.7480)/rad2deg;
 
-x0  = [Vt; alpha; beta; 0; 100; 1000; 0; 0;0;0;theta0;psi_hmr/rad2deg;  ];
+x0  = [Vt; alpha; beta; 0; 0; 1000; 0; 0;0;0;theta0;psi_hmr/rad2deg;  ];
 % str is always an empty matrix
 %
 str = [];

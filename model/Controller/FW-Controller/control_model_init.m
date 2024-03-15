@@ -4,14 +4,11 @@ CONTROL_CONST.g  = single(9.80665);
 
 %% Fromation Paramaters
 FROMATION_PARAM.UAV_ID   = 1;
-FROMATION_PARAM.ADJ_MARTIX = [1 1 1;1 1 1;1 1 1];                % Adjacency matrix --> A
-FROMATION_PARAM.REL_X_MATRIX = [0 -40 -20;40 0 20;20 -20 0];     % Postion X Relation matrix --> Rx
-FROMATION_PARAM.REL_Y_MATRIX = [0 20 40;-20 0 20;-40 -20 0];     % Postion Y Relation matrix --> Ry
+FROMATION_PARAM.ADJ_MARTIX = [0 0 0;1 0 0;1 0 0];                % Adjacency matrix --> A
+FROMATION_PARAM.REL_X_MATRIX = [0 20 20;-20 0 0;-20 0 0];     % Postion X Relation matrix --> Rx
+FROMATION_PARAM.REL_Y_MATRIX = [0 -20 20;20 0 40;-20 -40 0];     % Postion Y Relation matrix --> Ry
 FROMATION_PARAM.REL_Z_MATRIX = [0 0 0;0 0 0;0 0 0];              % Postion Z Relation matrix --> Rz
 FROMATION_PARAM.NUM_UAV  = size(FROMATION_PARAM.ADJ_MARTIX, 1);  % Num of uav at now.
-FROMATION_PARAM.FORM_X_KP = single(1);
-FROMATION_PARAM.FORM_Y_KP = single(1);
-FROMATION_PARAM.FORM_Z_KP = single(0);
 
 %% Control Paramaters
 CONTROL_PARAM_VALUE.ROLL_P          = single(7);
@@ -35,17 +32,17 @@ CONTROL_PARAM_VALUE.FW_AIRSPD_MAX   = single(30.0); % Maximum Airspeed (CAS)
 CONTROL_PARAM_VALUE.FW_AIRSPD_TRIM  = single(25.0); % Trim (Cruise) Airspeed
 CONTROL_PARAM_VALUE.FW_AIRSPD_STALL = single(7.0);  % Stall Airspeed (CAS)
 CONTROL_PARAM_VALUE.FW_ARSP_MODE    = int32(0);     % Airspeed mode: 0 Use airspeed in controller
-CONTROL_PARAM_VALUE.FW_ARSP_SCALE_EN= int32(1);     % Enable airspeed scaling
+CONTROL_PARAM_VALUE.FW_ARSP_SCALE_EN= int32(1);     % Enable airspeed scaling 
 CONTROL_PARAM_VALUE.FW_T_TAS_TC     = single(5.0);  % True airspeed error time constant
 CONTROL_PARAM_VALUE.FW_T_I_GAIN_PIT = single(0.1);  % Integrator gain pitch
 CONTROL_PARAM_VALUE.FW_T_I_GAIN_THR = single(0.05); % Integrator gain throttle
 CONTROL_PARAM_VALUE.FW_T_THR_DAMP   = single(0.1);  % Throttle damping factor
 CONTROL_PARAM_VALUE.FW_T_SPDWEIGHT  = single(1.0);  % Speed <--> Altitude priority
-CONTROL_PARAM_VALUE.FW_T_CLMB_MAX   = single(5.0);  % Maximum climb rate:This is the maximum climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the trim value. 
+CONTROL_PARAM_VALUE.FW_T_CLMB_MAX   = single(10.0);  % Maximum climb rate:This is the maximum climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the trim value. 
 CONTROL_PARAM_VALUE.FW_T_SINK_MIN   = single(2.0);  % Minimum descent rate
-CONTROL_PARAM_VALUE.FW_T_SINK_MAX   = single(5.0);  % Maximum descent rate
-CONTROL_PARAM_VALUE.FW_T_CLMB_R_SP  = single(3.0);  % Default target climbrate
-CONTROL_PARAM_VALUE.FW_T_SINK_R_SP  = single(2.0);  % Default target sinkrate
+CONTROL_PARAM_VALUE.FW_T_SINK_MAX   = single(8.0);  % Maximum descent rate
+CONTROL_PARAM_VALUE.FW_T_CLMB_R_SP  = single(5.0);  % Default target climbrate
+CONTROL_PARAM_VALUE.FW_T_SINK_R_SP  = single(5.0);  % Default target sinkrate
 CONTROL_PARAM_VALUE.FW_P_LIM_MAX    = single(deg2rad(30.0)); % Maximum pitch angle
 CONTROL_PARAM_VALUE.FW_P_LIM_MIN    = single(deg2rad(-30.0));% Minimum pitch angle
 CONTROL_PARAM_VALUE.FW_R_LIM        = single(deg2rad(50.0)); % Maximum roll angle
