@@ -1,12 +1,9 @@
-classdef VehicleState < Simulink.IntEnumType
-    % MATLAB enumeration class definition generated from template
-    %   to track the active leaf state of FMS/FMS State Machine/Vehicle.
-    
+classdef PilotMode < Simulink.IntEnumType
     enumeration
         None(0),
         FormAssemble(1),
         FormDisband(2),
-        FormMission(3),
+
 		Mission(4),
 		Hold(5),
     end
@@ -16,7 +13,7 @@ classdef VehicleState < Simulink.IntEnumType
         function defaultValue = getDefaultValue()
             % GETDEFAULTVALUE  Returns the default enumerated value.
             %   If this method is not defined, the first enumeration is used.
-            defaultValue = VehicleState.None;
+            defaultValue = PilotMode.None;
         end
 
         function dScope = getDataScope()
@@ -27,7 +24,7 @@ classdef VehicleState < Simulink.IntEnumType
 
         function desc = getDescription()
             % GETDESCRIPTION  Returns a description of the enumeration.
-            desc = 'enumeration to track active leaf state of FMS/FMS State Machine/Vehicle';
+            desc = 'enumeration of pilot mode';
         end
 
         function fileName = getHeaderFile()
@@ -42,5 +39,4 @@ classdef VehicleState < Simulink.IntEnumType
         end
 
     end
-
-end
+end 

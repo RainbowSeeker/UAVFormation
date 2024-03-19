@@ -1,15 +1,6 @@
 %% Model Constant
 CONTROL_CONST.dt = 0.005;   % model execution period
 CONTROL_CONST.g  = single(9.80665);
-
-%% Fromation Paramaters
-FROMATION_PARAM.UAV_ID   = 1;
-FROMATION_PARAM.ADJ_MARTIX = [0 0 0;1 0 0;1 0 0];                % Adjacency matrix --> A
-FROMATION_PARAM.REL_X_MATRIX = [0 20 20;-20 0 0;-20 0 0];     % Postion X Relation matrix --> Rx
-FROMATION_PARAM.REL_Y_MATRIX = [0 -20 20;20 0 40;-20 -40 0];     % Postion Y Relation matrix --> Ry
-FROMATION_PARAM.REL_Z_MATRIX = [0 0 0;0 0 0;0 0 0];              % Postion Z Relation matrix --> Rz
-FROMATION_PARAM.NUM_UAV  = size(FROMATION_PARAM.ADJ_MARTIX, 1);  % Num of uav at now.
-
 %% Control Paramaters
 CONTROL_PARAM_VALUE.ROLL_P          = single(7);
 CONTROL_PARAM_VALUE.PITCH_P         = single(7);
