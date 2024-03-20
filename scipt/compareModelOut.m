@@ -8,6 +8,3 @@ plot(ins.x_R.Data(:, 1), ins.y_R.Data(:, 1), ...
      ins.x_R.Data(:, 3), ins.y_R.Data(:, 3));
 title('XoY');
 axis equal;
-% PN = get(out.logsout, 'PN').Values.Data;
-% PE = get(out.logsout, 'PE').Values.Data;
-% plot(PN,PE);
