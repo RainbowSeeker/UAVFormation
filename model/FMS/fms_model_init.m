@@ -28,8 +28,6 @@ FMS_PARAM_VALUE.LOITER_R = single(50.0);
 
 FMS_PARAM_VALUE.Y_P = single(0.95);
 FMS_PARAM_VALUE.ACC_Y_LIM = single(8);
-FMS_PARAM_VALUE.ROLL_LIM = single(pi/4);
-FMS_PARAM_VALUE.PITCH_LIM = single(pi/4);
 
 FMS_PARAM = Simulink.Parameter(FMS_PARAM_VALUE);
 FMS_PARAM.CoderInfo.StorageClass = 'ExportedGlobal';

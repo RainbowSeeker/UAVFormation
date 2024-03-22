@@ -150,7 +150,7 @@ end
 function [xts,yts,xtf,ytf,l,pos,pof,r,m,n]=Dubins(xs,ys,psi_s,xf,yf,psi_f,v)
     %基本参数
     g=9.81;
-    r=v*v/g/tan(deg2rad(30)); %TODO
+    r=v*v/g/tan(deg2rad(50)); %TODO
     rad2deg = 57.295779513082320876798154814105;
 
     %起始圆弧段
