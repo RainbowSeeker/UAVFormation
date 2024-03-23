@@ -8,18 +8,8 @@ dubConnObj = dubinsConnection;
 
 segment = connect(dubConnObj,startPose, goalPose);
 
-numPoints = 5;   % 路径点的数量
+numPoints = 50;   % 路径点的数量
 length = segment{1}.Length;
 seg = 0:length/(numPoints - 1):length;
-poses = interpolate(segment{1});
-
-% 显示路径点
-figure;
-plot(points(:, 1), points(:, 2), 'r-', 'LineWidth', 2);
-xlabel('X');
-ylabel('Y');
-title('Dubins 路径');
-grid on;
-axis equal;
-
-toc
+poses = interpolate(segment{1}, seg);
+show(segment{1})

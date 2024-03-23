@@ -3,3 +3,6 @@ build
 *.autosave
 codegen
 *.csv
+*.asv
+test*
+data.mat
