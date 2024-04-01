@@ -29,10 +29,8 @@ function result =  MutiDubins(Start, Goal, Velocity, PhiMaximum)
                   'xm',0, ...%中间点x坐标
                   'ym',0 ...%中间点y坐标
                    );
-    
-    object = [];
+    object = [obj obj obj];
     for i=1:size(Start,1)
-        object = [object obj];
         object(i).xs=Start(i,1);
         object(i).ys=Start(i,2);
         object(i).psi_s=Start(i,3);
@@ -65,8 +63,8 @@ function result =  MutiDubins(Start, Goal, Velocity, PhiMaximum)
             for j=1:precision
                 while(stop_flag)
                     search=search+precision_base(j);
-                    object(i).xm=object(i).xf-search*sin(object(i).psi_f/rad2deg);
-                    object(i).ym=object(i).yf-search*cos(object(i).psi_f/rad2deg);
+                    object(i).xm=object(i).xf-search*cos(object(i).psi_f/rad2deg);
+                    object(i).ym=object(i).yf-search*sin(object(i).psi_f/rad2deg);
                     [object(i).xts,object(i).yts,object(i).xtf,object(i).ytf,object(i).cs,object(i).cf,object(i).lt,object(i).l,object(i).pos,object(i).pof,~,object(i).index_dubins(1),object(i).index_dubins(2)] ...
                         =Dubins(object(i).xs,object(i).ys,object(i).psi_s,object(i).xm,object(i).ym,object(i).psi_f,object(i).v);
                     goal=object(i).l(object(i).index_dubins(1),object(i).index_dubins(2))+search-l_ref;
@@ -95,20 +93,20 @@ function result =  MutiDubins(Start, Goal, Velocity, PhiMaximum)
     for i=1:size(result,1)
         if(i==target)
             result(i,1,:)=[object(i).xs,object(i).ys,object(i).psi_s,object(i).r,object(i).cs(object(i).index_dubins(1),object(i).index_dubins(2))];
-            result(i,2,:)=[object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)),deltapsi(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,0,object(i).lt(object(i).index_dubins(1),object(i).index_dubins(2))];
-            result(i,3,:)=[object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),deltapsi(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,object(i).r,object(i).cf(object(i).index_dubins(1),object(i).index_dubins(2))];
+            result(i,2,:)=[object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)),atan3(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,0,object(i).lt(object(i).index_dubins(1),object(i).index_dubins(2))];
+            result(i,3,:)=[object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),atan3(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,object(i).r,object(i).cf(object(i).index_dubins(1),object(i).index_dubins(2))];
             result(i,4,:)=[object(i).xm,object(i).ym,object(i).psi_f,0,0];
             result(i,5,:)=[object(i).xf,object(i).yf,object(i).psi_f,0,object(i).l(object(i).index_dubins(1),object(i).index_dubins(2))];
         else
             result(i,1,:)=[object(i).xs,object(i).ys,object(i).psi_s,object(i).r,object(i).cs(object(i).index_dubins(1),object(i).index_dubins(2))];
-            result(i,2,:)=[object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)),deltapsi(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,0,object(i).lt(object(i).index_dubins(1),object(i).index_dubins(2))];
-            result(i,3,:)=[object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),deltapsi(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,object(i).r,object(i).cf(object(i).index_dubins(1),object(i).index_dubins(2))];
+            result(i,2,:)=[object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)),atan3(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,0,object(i).lt(object(i).index_dubins(1),object(i).index_dubins(2))];
+            result(i,3,:)=[object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),atan3(object(i).xtf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).ytf(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).xts(object(i).index_dubins(1),object(i).index_dubins(2)),object(i).yts(object(i).index_dubins(1),object(i).index_dubins(2)))*rad2deg,object(i).r,object(i).cf(object(i).index_dubins(1),object(i).index_dubins(2))];
             result(i,4,:)=[object(i).xm,object(i).ym,object(i).psi_f,0,object(i).l_ad];
             result(i,5,:)=[object(i).xf,object(i).yf,object(i).psi_f,0,object(i).l(object(i).index_dubins(1),object(i).index_dubins(2))+object(i).l_ad];
         end
     end
-    
-    %atan求以X轴正方向逆时针到某向量的夹角
+  
+    %atan求以X轴正方向逆时针到某向量的夹角（NED坐标系下航向角）
     function result=atan3(x,y,x0,y0)%rad
         deltax=x-x0;
         deltay=y-y0;
@@ -133,31 +131,6 @@ function result =  MutiDubins(Start, Goal, Velocity, PhiMaximum)
         end
     end
 
-    %atan求以y轴正方向顺时针到某向量的夹角/航向角
-    function delta_psi=deltapsi(x,y,x0,y0)%rad
-        deltax=x-x0;
-        deltay=y-y0;
-        if(deltax>0&&deltay>0)
-            delta_psi=atan(deltax/deltay);
-        elseif (deltax<0&&deltay>0)
-            delta_psi=2*pi+atan(deltax/deltay);
-        elseif (deltay<0)
-            delta_psi=pi+atan(deltax/deltay);
-        elseif (deltax==0)
-            if (deltay>0)
-                delta_psi=0;
-            else
-                delta_psi=pi;
-            end
-        else
-            if(deltax>0)
-                delta_psi=pi/2;
-            else
-                delta_psi=pi*3/2;
-            end
-        end
-    end
-
     %单机Dubins
     function [xts,yts,xtf,ytf,cs,cf,lt,l,pos,pof,r,m,n]=Dubins(xs,ys,psi_s,xf,yf,psi_f,v)
         %基本参数
@@ -166,18 +139,18 @@ function result =  MutiDubins(Start, Goal, Velocity, PhiMaximum)
         
         %起始圆弧段
         pos=zeros(2,2);%xos1,yos1;xos2,yos2
-        pos(1,1)=xs+r*cos(psi_s/rad2deg);
-        pos(1,2)=ys-r*sin(psi_s/rad2deg);
-        pos(2,1)=xs-r*cos(psi_s/rad2deg);
-        pos(2,2)=ys+r*sin(psi_s/rad2deg);
+        pos(1,1)=xs+r*sin(psi_s/rad2deg);
+        pos(1,2)=ys-r*cos(psi_s/rad2deg);
+        pos(2,1)=xs-r*sin(psi_s/rad2deg);
+        pos(2,2)=ys+r*cos(psi_s/rad2deg);
         direction_s=[1,-1];%右为正
         
         %终止圆弧段
         pof=zeros(2,2);%xof1,yof1;xof2,yof2
-        pof(1,1)=xf+r*cos(psi_f/rad2deg);
-        pof(1,2)=yf-r*sin(psi_f/rad2deg);
-        pof(2,1)=xf-r*cos(psi_f/rad2deg);
-        pof(2,2)=yf+r*sin(psi_f/rad2deg);
+        pof(1,1)=xf+r*sin(psi_f/rad2deg);
+        pof(1,2)=yf-r*cos(psi_f/rad2deg);
+        pof(2,1)=xf-r*sin(psi_f/rad2deg);
+        pof(2,2)=yf+r*cos(psi_f/rad2deg);
         direction_f=[1,-1];%右为正
         
         %直线段

@@ -1,5 +1,5 @@
 %% Model Constant
-CONTROL_CONST.dt = 0.005;   % model execution period
+CONTROL_CONST.dt = 0.05;   % model execution period
 CONTROL_CONST.g  = single(9.80665);
 %% Control Paramaters
 CONTROL_PARAM_VALUE.ROLL_P          = single(7);
@@ -55,11 +55,7 @@ CONTROL_PARAM_VALUE.FW_THR_MIN      = single(0.0);  % Throttle limit min
 CONTROL_PARAM_VALUE.FW_THR_TRIM     = single(utrim(4)/100);  % Trim throttle
 
 CONTROL_PARAM_VALUE.FW_T_SEB_R_FF   = single(1.0);  % Specific total energy balance rate feedforward gain
-CONTROL_PARAM_VALUE.FW_T_I_GAIN_PIT = single(0.1);  % Integrator gain pitch
 CONTROL_PARAM_VALUE.FW_T_PTCH_DAMP  = single(0.1);  % Pitch damping factor
-CONTROL_PARAM_VALUE.FW_T_I_GAIN_THR = single(0.05); % Integrator gain throttle
-CONTROL_PARAM_VALUE.FW_T_THR_DAMP   = single(0.1);  % Throttle damping factor
-
 % CONTROL_PARAM_VALUE.FW_ROLL_EFFC    = single(1.0);
 % CONTROL_PARAM_VALUE.FW_PITCH_EFFC   = single(1.0);
 % CONTROL_PARAM_VALUE.FW_YAW_EFFC     = single(1.0);
