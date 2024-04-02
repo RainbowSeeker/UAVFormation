@@ -4,11 +4,10 @@ classdef VehicleState < Simulink.IntEnumType
     
     enumeration
         None(0),
-        FormAssemble(1),
-        FormDisband(2),
-        FormMission(3),
-		Mission(4),
-		Hold(5),
+        Hold(1),
+        FormAssemble(2),
+        FormDisband(3),
+        FormMission(4),
     end
 
     methods (Static)

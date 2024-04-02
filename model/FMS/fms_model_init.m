@@ -3,7 +3,7 @@ FMS_CONST.dt = 0.05;
 
 %% Fromation Paramaters
 FORMATION_PARAM_VALUE.UAV_ID   = 1;
-FORMATION_PARAM_VALUE.ADJ_MARTIX = [0 0.2 0.2;1 0 0;1 0 0];                % Adjacency matrix --> A
+FORMATION_PARAM_VALUE.ADJ_MARTIX = [0 0 0;1 0 0;1 0 0];                % Adjacency matrix --> A
 FORMATION_PARAM_VALUE.REL_X_MATRIX = [0 20 20;-20 0 0;-20 0 0];     % Postion X Relation matrix --> Rx
 FORMATION_PARAM_VALUE.REL_Y_MATRIX = [0 20 -20;-20 0 -40;20 40 0];     % Postion Y Relation matrix --> Ry
 FORMATION_PARAM_VALUE.REL_Z_MATRIX = [0 0 0;0 0 0;0 0 0];              % Postion Z Relation matrix --> Rz
@@ -12,7 +12,7 @@ FORMATION_PARAM_VALUE.FORM_POINT = [00 1000 0;
                               50 1000 0;
                               -50 1000 0];
 FORMATION_PARAM_VALUE.FORM_RADIUS = single(100);
-FORMATION_PARAM_VALUE.ASSEMBLE_KT = single(5);
+FORMATION_PARAM_VALUE.ASSEMBLE_KT = single(1);
 
 FORMATION_PARAM = Simulink.Parameter(FORMATION_PARAM_VALUE);
 FORMATION_PARAM.CoderInfo.StorageClass = 'ExportedGlobal';
