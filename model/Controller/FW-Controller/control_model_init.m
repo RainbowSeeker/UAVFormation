@@ -1,5 +1,5 @@
 %% Model Constant
-CONTROL_CONST.dt = 0.05;   % model execution period
+CONTROL_CONST.dt = 0.02;   % model execution period
 CONTROL_CONST.g  = single(9.80665);
 %% Control Paramaters
 CONTROL_PARAM_VALUE.ROLL_P          = single(7);
