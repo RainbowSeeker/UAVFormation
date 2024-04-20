@@ -3,8 +3,9 @@ classdef PilotMode < Simulink.IntEnumType
         None(0),
         Hold(1),
         FormAssemble(2),
-        FormDisband(3),
+        FormHold(3),
         FormMission(4),
+        FormDisband(5),
     end
 
     methods (Static)
