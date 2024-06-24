@@ -2,7 +2,7 @@
 
 ## How to use
 ```
-git clone https://github.com/RainbowSeeker/UAVFormation.git --recurisve
+git clone https://github.com/RainbowSeeker/UAVFormation.git --recursive
 cd UAVFormation
 ```
 px4 source code
